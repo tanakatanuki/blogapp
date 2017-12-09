@@ -1,0 +1,26 @@
+<!--<%= form_with(model: @bblog, local: true) do |form| %>-->
+<!--  <% if @bblog.errors.any? %>-->
+<!--  <div id ="error_explanation">-->
+<!--    <h2><%= @bblog.errors.count %>件のエラーがあります。</h2>-->
+    
+<!--    <ul>-->
+<!--    <% @bblog.errors.full_messages.each do |msg| %>-->
+<!--      <li><%= msg %></li>-->
+<!--    <% end %>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--  <% end %>-->
+  
+<!--  <div class="blog_title">-->
+<!--      <%= form.label :titleName %>-->
+<!--      <%= form.text_field :name %>-->
+<!--  </div>-->
+<!--  <div class="blog_title">-->
+<!--      <%= form.label :content %>-->
+<!--      <%= form.text_field :content%>-->
+<!--  </div>-->
+<!--  <%= form.submit %>-->
+<!--<% end %>-->
+<h2>ブログを編集します</h2>
+
+<%= render "form" %>

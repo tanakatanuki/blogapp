@@ -1,0 +1,16 @@
+<h3>以下の内容で登録しますか</h3>
+
+<%= form_with(model: @bblog, url: bblogs_path, local: true) do |form| %>
+<%= form.hidden_field :name %>
+<%= form.hidden_field :content %>
+
+<p>タイトル...<%= @bblog.name %></p>
+<p>本文...<%= @bblog.content %></p>
+<%= form.submit "登録するぜ" %>
+<% end %>
+
+<%= form_with(model: @bblog, local: true, url: new_bblog_path, method: "get") do |form| %>
+    <%= form.hidden_field :name %>
+    <%= form.hidden_field :content %>
+    <%= form.submit "書き直す" , name: "back" %>
+<% end %>
