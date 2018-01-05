@@ -3,12 +3,32 @@
   <head>
     <title>Bblogapp</title>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    
+    <header>
+      <ul>
+        <li><img src="/assets/bblog_head_foot.jpg"></li>
+        <li><a href="/bblogs/home/index">BootstrapTextPage</a></li>
+        <li><a href="/bblogs">index</a></li>
+      </ul>
+    </header>
+    
     <%= yield %>
+    
+    <footer>
+      <div class="footer-div">
+      <ul>
+        <li><img src="/assets/bblog_head_foot.jpg"></li>
+        <li>10月期tanaka</li>
+        <li>(c)tanaka</li>
+      </ul>
+      </div>
+    </footer>
+    
   </body>
 </html>

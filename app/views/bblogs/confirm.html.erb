@@ -6,11 +6,11 @@
 
 <p>タイトル...<%= @bblog.name %></p>
 <p>本文...<%= @bblog.content %></p>
-<%= form.submit "登録するぜ" %>
+<%= form.submit "登録するぜ" , class:"btn btn-success"%>
 <% end %>
 
 <%= form_with(model: @bblog, local: true, url: new_bblog_path, method: "get") do |form| %>
     <%= form.hidden_field :name %>
     <%= form.hidden_field :content %>
-    <%= form.submit "書き直す" , name: "back" %>
+    <%= form.submit "書き直す" , name: "back" , class:"btn btn-danger"%>
 <% end %>
