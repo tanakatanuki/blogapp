@@ -1,7 +1,7 @@
 class BblogsController < ApplicationController
     before_action :set_blog, only: [:show, :edit, :update, :destroy]
+    before_action :correct_user, only: [:new, :edit, :show, :destroy]
 
-    
     def index
         @bblogs = Bblog.all
 #        binding.pry
@@ -64,5 +64,13 @@ class BblogsController < ApplicationController
     
     def set_blog
         @bblog = Bblog.find(params[:id])
+    end
+    
+    # カレントユーザーが存在しない場合、強制的にログイン画面にリダイレクト
+    def correct_user
+        if !logged_in?
+            flash[:warning] = "ログインしてください"
+            redirect_to new_session_path
+        end
     end
 end

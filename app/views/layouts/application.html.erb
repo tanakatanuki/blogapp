@@ -13,10 +13,26 @@
     <header>
       <ul>
         <li><img src="/assets/bblog_head_foot.jpg"></li>
-        <li><a href="/bblogs/home/index">BootstrapTextPage</a></li>
-        <li><a href="/bblogs">index</a></li>
+        <li><a href="/bblogs/home/index">TopPage</a></li>
+        <li><a href="/bblogs">投稿一覧</a></li>
+
+        <% if logged_in? %>
+          <li><%= link_to "ユーザー情報", user_path(current_user.id) %></li>
+          <li><%= link_to "ログアウト", session_path(current_user.id),
+            method: :delete %></li>
+        <% else %>
+          <li><%= link_to "新規登録", new_user_path %></li>
+          <li><%= link_to "ログイン", new_session_path %></li>
+        <% end %>
       </ul>
     </header>
+    
+    <!--
+    フラッシュメッセージの表示
+    -->
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class:"alert alert-#{key}") %>
+    <% end %>
     
     <%= yield %>
     

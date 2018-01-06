@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-   get "/bblogs/home/index" , to: "home#index"
-#   root to: "home#index"
+    # トップページ用
+    get "/bblogs/home/index" , to: "home#index"
+    #   root to: "home#index"
 
+    # ユーザー情報管理
+    resources :users, only:[:new, :create, :show]
+    
+    # ログイン機能
+    resources :sessions, only:[:new, :create, :destroy]
+    
+    # ブログ機能
     resources :bblogs do
         collection do
             post :confirm
