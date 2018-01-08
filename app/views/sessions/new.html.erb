@@ -1,9 +1,15 @@
-<%= form_with(scope: :session, url: sessions_path) do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  
-  <%= f.submit "ログイン" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6">
+      <%= form_with(scope: :session, url: sessions_path) do |f| %>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+        
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+        
+        <%= f.submit "ログイン" %>
+      <% end %>
+    </div>
+  </div>
+</div>

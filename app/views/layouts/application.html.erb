@@ -11,20 +11,35 @@
   <body>
     
     <header>
-      <ul>
-        <li><img src="/assets/bblog_head_foot.jpg"></li>
-        <li><a href="/bblogs/home/index">TopPage</a></li>
-        <li><a href="/bblogs">投稿一覧</a></li>
+      <nav class="navbar navbar-inverse2">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+              <span class="sr-only">メニュー</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <img class="navbar-brand2" src="/assets/bblog_head_foot.jpg">
+          </div>
 
-        <% if logged_in? %>
-          <li><%= link_to "ユーザー情報", user_path(current_user.id) %></li>
-          <li><%= link_to "ログアウト", session_path(current_user.id),
-            method: :delete %></li>
-        <% else %>
-          <li><%= link_to "新規登録", new_user_path %></li>
-          <li><%= link_to "ログイン", new_session_path %></li>
-        <% end %>
-      </ul>
+          <div id="gnavi" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/bblogs/home/index">TopPage</a></li>
+              <li><a href="/bblogs">投稿記事</a></li>
+      
+              <% if logged_in? %>
+                <li><%= link_to "ユーザー情報", user_path(current_user.id) %></li>
+                <li><%= link_to "ログアウト", session_path(current_user.id),
+                  method: :delete %></li>
+              <% else %>
+                <li><%= link_to "新規登録", new_user_path %></li>
+                <li><%= link_to "ログイン", new_session_path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
     
     <!--

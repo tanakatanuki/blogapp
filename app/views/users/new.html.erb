@@ -9,6 +9,10 @@
   </div>
 <% end %>
 
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 blog-panel">
+
 <%= form_with(model: @user, local: true) do |f| %>
   
   <%= f.label :name %>
@@ -25,3 +29,7 @@
   
   <%= f.submit "登録する" %>
 <% end %>
+
+    </div>
+  </div>
+</div>
