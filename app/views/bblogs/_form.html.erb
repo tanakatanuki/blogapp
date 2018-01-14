@@ -19,8 +19,12 @@
         <%= form.label :"内容" %>
         <%= form.text_field :content %>
     </div>
-    
-    <%= form.submit "登録する", class:"btn btn-default" %>
+    <!--
+    投稿ユーザー以外、登録できないようにする
+    -->
+    <% if @bblog.user_id == current_user.id %>
+        <%= form.submit "登録する", class:"btn btn-default" %>
+    <% end %>
 
 <% end %>
 

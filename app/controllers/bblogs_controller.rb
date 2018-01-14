@@ -21,6 +21,7 @@ class BblogsController < ApplicationController
 #        Bblog.create(params.require(:bblog).permit(:name, :content))
 #        Bblog.create(blog_params)
         @bblog = Bblog.new(blog_params)
+        @bblog.user_id = current_user.id
         if @bblog.save
             redirect_to bblogs_path, notice: "ブログを作成しました"
         else
@@ -29,8 +30,10 @@ class BblogsController < ApplicationController
         end
     end
     
+    # 詳細ページが呼び出されたとき、blog記事とお気に入りを取得する
     def show
         # @bblog = Bblog.find(params[:id])
+        @favorite = current_user.favorites.find_by(bblog_id: @bblog.id)
     end
     
     def edit

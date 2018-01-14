@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @favorite_bblogs = @user.favorite_bblogs
   end
   
   private

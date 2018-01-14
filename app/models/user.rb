@@ -12,4 +12,9 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true,
                     length: {minimum: 6}
+  
+  # 1:多モデル定義
+  has_many :favorites, dependent: :destroy
+  # favorite_bblogsという名のメソッドで、bblogsテーブルからデータ取得
+  has_many :favorite_bblogs, through: :favorites, source: :bblog
 end

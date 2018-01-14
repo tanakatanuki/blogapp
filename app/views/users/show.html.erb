@@ -1,10 +1,29 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-6 blog-panel">
-
-<h1><%= @user.name %>のページ</h1>
-<p>メールアドレス...<%= @user.email %></p>
-
+      <!--
+      登録ユーザー情報
+      -->
+      <h1><%= @user.name %>のページ</h1>
+      <p>メールアドレス...<%= @user.email %></p>
+      
+      <!--
+      お気に入りしたblog一覧
+      タイトルと内容を表示しているだけ
+      -->
+      <table class="table table-striped">
+          <tr>
+              <th>お気に入りblogのタイトル</th>
+              <th>お気に入りblogの内容</th>
+          </tr>
+          
+      <% @favorite_bblogs.each do |blog| %>
+          <tr>
+              <td><%= blog.name %></td>
+              <td><%= blog.content %></td>
+          </tr>
+      <% end %>
+      </table>
     </div>
   </div>
 </div>

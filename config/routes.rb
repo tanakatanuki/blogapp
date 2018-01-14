@@ -16,4 +16,7 @@ Rails.application.routes.draw do
         end
     end
     
+    # お気に入り機能
+    resources :favorites, only:[:create, :destroy]
+    
 end
