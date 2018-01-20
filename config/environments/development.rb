@@ -53,4 +53,21 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
 #  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
+  
+  # use letter_opener
+  config.action_mailer.default_url_options = { host: 'rarararails-miyasu.c9users.io:8080/' }
+  # config.action_mailer.delivery_method = :letter_opener
+  
+  # use sendgrid
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings =
+  {
+   user_name: ENV['SENDGRID_USERNAME'],
+   password: ENV['SENDGRID_PASSWORD'],
+   domain: "example.com",
+   address: "smtp.SendGrid.net",
+   port: 2525,
+   authentication: :plain,
+   enable_starttls_auto: true
+  }
 end

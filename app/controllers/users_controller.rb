@@ -5,9 +5,11 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  # 入力ユーザー情報がDBに保存されたとき、メール送信する
   def create
     @user = User.new(user_params)
     if @user.save
+      ContactMailer.send_email(@user).deliver
       redirect_to user_path(@user.id)
     else
       render "new"

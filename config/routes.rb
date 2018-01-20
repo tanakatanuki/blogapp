@@ -19,4 +19,8 @@ Rails.application.routes.draw do
     # お気に入り機能
     resources :favorites, only:[:create, :destroy]
     
+    # 開発環境でのみletter_opener_webを使い、メール送信機能を確認
+    if Rails.env.development?
+        mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    end
 end
