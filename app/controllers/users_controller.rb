@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   # 入力ユーザー情報がDBに保存されたとき、メール送信する
   def create
     @user = User.new(user_params)
+    # キャッシュから画像を復元 ← 確認画面を挟まないので不要
+    # @user.image.retrieve_from_cache! params[:cache][:image]
     if @user.save
       ContactMailer.send_email(@user).deliver
       redirect_to user_path(@user.id)
@@ -36,6 +38,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email,
                                 :password,
-                                :password_confirmation)
+                                :password_confirmation,
+                                :image)
   end
 end

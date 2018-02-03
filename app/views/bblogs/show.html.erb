@@ -4,7 +4,9 @@
 -->
 <p>タイトル:<%= @bblog.name %></p>
 <p>内容:<%= @bblog.content %></p>
-
+<% if @bblog.image? %>
+  <p>画像:<%= image_tag @bblog.image.url %></p>
+<% end %>
 <!--
 お気に入りと解除
 ログインしないで直リンでアクセスした場合、ログイン画面に飛ばしているため、

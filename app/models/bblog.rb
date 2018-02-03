@@ -6,4 +6,7 @@ class Bblog < ApplicationRecord
     has_many :favorites, dependent: :destroy
     # favorite_usersという名のメソッドで、usersテーブルにアクセス
     has_many :favorite_users, through: :favorites, source: :user
+    
+    # アップローダーの定義
+    mount_uploader :image, ImageUploader
 end

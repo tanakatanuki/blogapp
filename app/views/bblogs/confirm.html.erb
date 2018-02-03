@@ -6,6 +6,8 @@
 
 <p>タイトル...<%= @bblog.name %></p>
 <p>本文...<%= @bblog.content %></p>
+<p>画像...<%= hidden_field_tag :"cache[image]", @bblog.image.cache_name %>
+<%= image_tag(@bblog.image.url) %></p>
 <%= form.submit "登録するぜ" , class:"btn btn-success"%>
 <% end %>
 

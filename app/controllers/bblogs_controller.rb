@@ -22,6 +22,8 @@ class BblogsController < ApplicationController
 #        Bblog.create(blog_params)
         @bblog = Bblog.new(blog_params)
         @bblog.user_id = current_user.id
+        # キャッシュから画像を復元
+        @bblog.image.retrieve_from_cache! params[:cache][:image]
         if @bblog.save
             redirect_to bblogs_path, notice: "ブログを作成しました"
         else
@@ -62,7 +64,7 @@ class BblogsController < ApplicationController
     private
     
     def blog_params
-        params.require(:bblog).permit(:name, :content)
+        params.require(:bblog).permit(:name, :content, :image)
     end
     
     def set_blog

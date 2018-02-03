@@ -17,4 +17,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   # favorite_bblogsという名のメソッドで、bblogsテーブルからデータ取得
   has_many :favorite_bblogs, through: :favorites, source: :bblog
+  
+  # 画像アップローダーとモデルの紐付け
+  mount_uploader :image, ImageUploader
 end
